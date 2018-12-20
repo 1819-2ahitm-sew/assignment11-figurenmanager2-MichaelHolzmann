@@ -1,0 +1,26 @@
+package at.htl.figurenmanager2;
+
+public class Ellipse extends Figure {
+
+    private Point center;
+    private double majorAxis, minorAxis;
+
+    public Ellipse(Point center, double majorAxis, double minorAxis) {
+        this.center = center;
+        this.majorAxis = majorAxis;
+        this.minorAxis = minorAxis;
+    }
+
+    public double area() {
+        return majorAxis / 2 * minorAxis / 2 * Math.PI;
+    }
+
+    public double circumference() {
+        return (majorAxis / 2 + minorAxis / 2) * Math.PI;
+    }
+
+    public String toString() {
+        return String.format("Ellipse mit Hauptachse %.2f und Nebenachse %.2f: Fläche -> %.2f, Umfang -> %.2f", majorAxis, minorAxis, area(), circumference());
+    }
+
+}
