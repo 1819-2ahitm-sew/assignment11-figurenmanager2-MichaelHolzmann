@@ -1,7 +1,5 @@
 package at.htl.figurenmanager2;
 
-import processing.core.PApplet;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -10,7 +8,6 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-
         ArrayList<Figure> figures = new ArrayList<Figure>();
         int menu;
 
@@ -70,10 +67,10 @@ public class Main {
         System.out.println("Kreis erstellen:");
         System.out.println("-------------------------------------");
         System.out.print("x-Koordinate (Mittelpunkt): ");
-        int x = scanner.nextInt();
+        float x = scanner.nextFloat();
 
         System.out.print("y-Koordinate (Mittelpunkt): ");
-        int y = scanner.nextInt();
+        float y = scanner.nextFloat();
 
         System.out.print("Radius: ");
         float radius = scanner.nextFloat();
@@ -85,10 +82,10 @@ public class Main {
         System.out.println("Ellipse erstellen:");
         System.out.println("-------------------------------------");
         System.out.print("x-Koordinate (Mittelpunkt): ");
-        int x = scanner.nextInt();
+        float x = scanner.nextFloat();
 
         System.out.print("y-Koordinate (Mittelpunkt): ");
-        int y = scanner.nextInt();
+        float y = scanner.nextFloat();
 
         System.out.print("Hauptachse: ");
         float majorAxis = scanner.nextFloat();
@@ -103,10 +100,10 @@ public class Main {
         System.out.println("Quadrat erstellen:");
         System.out.println("-------------------------------------");
         System.out.print("x-Koordinate (Eckpunkt links oben): ");
-        int x = scanner.nextInt();
+        float x = scanner.nextFloat();
 
         System.out.print("y-Koordinate (Eckpunkt links oben): ");
-        int y = scanner.nextInt();
+        float y = scanner.nextFloat();
 
         System.out.print("Länge: ");
         float length = scanner.nextFloat();
@@ -118,10 +115,10 @@ public class Main {
         System.out.println("Rechteck erstellen:");
         System.out.println("-------------------------------------");
         System.out.print("x-Koordinate (Eckpunkt links oben): ");
-        int x = scanner.nextInt();
+        float x = scanner.nextFloat();
 
         System.out.print("y-Koordinate (Eckpunkt links oben): ");
-        int y = scanner.nextInt();
+        float y = scanner.nextFloat();
 
         System.out.print("Länge: ");
         float length = scanner.nextFloat();
@@ -134,7 +131,7 @@ public class Main {
 
     private static Polygon createPolygon(){
         ArrayList<Point> corners = new ArrayList<>();
-        int x, y;
+        float x, y;
         int input;
 
         System.out.println("Polygon erstellen:");
@@ -143,10 +140,10 @@ public class Main {
 
         for (int i = 1; i <= 3; i++) {
             System.out.printf("x-Koordinate (%d. Eckpunkt): ", i);
-            x = scanner.nextInt();
+            x = scanner.nextFloat();
 
             System.out.printf("y-Koordinate (%d. Eckpunkt): ", i);
-            y = scanner.nextInt();
+            y = scanner.nextFloat();
             scanner.nextLine();
 
             corners.add(new Point(x, y));
@@ -162,10 +159,10 @@ public class Main {
             count++;
 
             System.out.printf("x-Koordinate (%d. Eckpunkt): ", count);
-            x = scanner.nextInt();
+            x = scanner.nextFloat();
 
             System.out.printf("y-Koordinate (%d. Eckpunkt: ", count);
-            y = scanner.nextInt();
+            y = scanner.nextFloat();
             scanner.nextLine();
 
             corners.add(new Point(x, y));
@@ -180,7 +177,6 @@ public class Main {
     }
 
     private static void printFiguresSortedByArea(ArrayList<Figure> list){
-
         Figure[] figures = list.toArray(new Figure[]{});
         Figure tmp;
 
@@ -203,7 +199,6 @@ public class Main {
     }
 
     private static void printFiguresSortedByCircumference(ArrayList<Figure> list){
-
         Figure[] figures = list.toArray(new Figure[]{});
         Figure tmp;
 
