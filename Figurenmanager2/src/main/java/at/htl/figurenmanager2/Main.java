@@ -76,7 +76,7 @@ public class Main {
         int y = scanner.nextInt();
 
         System.out.print("Radius: ");
-        double radius = scanner.nextDouble();
+        float radius = scanner.nextFloat();
 
         return new Circle(new Point(x, y), radius);
     }
@@ -91,10 +91,10 @@ public class Main {
         int y = scanner.nextInt();
 
         System.out.print("Hauptachse: ");
-        double majorAxis = scanner.nextDouble();
+        float majorAxis = scanner.nextFloat();
 
         System.out.print("Nebenachse: ");
-        double minorAxis = scanner.nextDouble();
+        float minorAxis = scanner.nextFloat();
 
         return new Ellipse(new Point(x, y), majorAxis, minorAxis);
     }
@@ -109,7 +109,7 @@ public class Main {
         int y = scanner.nextInt();
 
         System.out.print("Länge: ");
-        double length = scanner.nextDouble();
+        float length = scanner.nextFloat();
 
         return new Square(new Point(x, y), length);
     }
@@ -124,10 +124,10 @@ public class Main {
         int y = scanner.nextInt();
 
         System.out.print("Länge: ");
-        double length = scanner.nextDouble();
+        float length = scanner.nextFloat();
 
         System.out.print("Breite: ");
-        double width = scanner.nextDouble();
+        float width = scanner.nextFloat();
 
         return new Rectangle(new Point(x, y), length, width);
     }
@@ -179,15 +179,6 @@ public class Main {
         return new Polygon(corners);
     }
 
-    private static void printFigures(ArrayList<Figure> figures){
-        for(Figure f : figures){
-            System.out.println(f);
-        }
-
-        System.out.println("Drücken Sie <Enter> um fortzufahren.");
-        scanner.nextLine();
-    }
-
     private static void printFiguresSortedByArea(ArrayList<Figure> list){
 
         Figure[] figures = list.toArray(new Figure[]{});
@@ -206,6 +197,9 @@ public class Main {
         for (int i = 0; i < figures.length; i++) {
             System.out.println(figures[i]);
         }
+
+        System.out.println("Drücken Sie <Enter> um fortzufahren.");
+        scanner.nextLine();
     }
 
     private static void printFiguresSortedByCircumference(ArrayList<Figure> list){
@@ -226,5 +220,8 @@ public class Main {
         for (int i = 0; i < figures.length; i++) {
             System.out.println(figures[i]);
         }
+
+        System.out.println("Drücken Sie <Enter> um fortzufahren.");
+        scanner.nextLine();
     }
 }

@@ -3,9 +3,9 @@ package at.htl.figurenmanager2;
 public class Rectangle extends Figure {
 
     private Point upperLeftCorner;
-    private double length, width;
+    private float length, width;
 
-    public Rectangle(Point upperLeftCorner, double length, double width) {
+    public Rectangle(Point upperLeftCorner, float length, float width) {
         this.upperLeftCorner = upperLeftCorner;
         this.length = length;
         this.width = width;

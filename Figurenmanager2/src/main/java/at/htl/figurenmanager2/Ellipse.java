@@ -3,9 +3,9 @@ package at.htl.figurenmanager2;
 public class Ellipse extends Figure {
 
     private Point center;
-    private double majorAxis, minorAxis;
+    private float majorAxis, minorAxis;
 
-    public Ellipse(Point center, double majorAxis, double minorAxis) {
+    public Ellipse(Point center, float majorAxis, float minorAxis) {
         this.center = center;
         this.majorAxis = majorAxis;
         this.minorAxis = minorAxis;

@@ -3,9 +3,9 @@ package at.htl.figurenmanager2;
 public class Circle extends Figure {
 
     private Point center;
-    private double radius;
+    private float radius;
 
-    public Circle(Point center, double radius) {
+    public Circle(Point center, float radius) {
         this.center = center;
         this.radius = radius;
     }

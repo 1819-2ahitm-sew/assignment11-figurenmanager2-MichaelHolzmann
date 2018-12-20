@@ -3,9 +3,9 @@ package at.htl.figurenmanager2;
 public class Square extends Figure {
 
     private Point upperLeftCorner;
-    private double length;
+    private float length;
 
-    public Square(Point upperLeftCorner, double length) {
+    public Square(Point upperLeftCorner, float length) {
         this.upperLeftCorner = upperLeftCorner;
         this.length = length;
     }
