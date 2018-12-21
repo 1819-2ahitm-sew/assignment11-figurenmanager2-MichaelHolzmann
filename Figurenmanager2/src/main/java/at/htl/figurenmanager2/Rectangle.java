@@ -11,6 +11,18 @@ public class Rectangle extends Figure {
         this.width = width;
     }
 
+    public Point getUpperLeftCorner() {
+        return upperLeftCorner;
+    }
+
+    public float getLength() {
+        return length;
+    }
+
+    public float getWidth() {
+        return width;
+    }
+
     public double area() {
         return length * width;
     }
@@ -22,5 +34,6 @@ public class Rectangle extends Figure {
     public String toString() {
         return String.format("Rechteck mit Länge %.2f und Breite %.2f: Fläche -> %.2f, Umfang -> %.2f", length, width, area(), circumference());
     }
+
 
 }

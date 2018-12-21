@@ -5,6 +5,14 @@ public class Square extends Figure {
     private Point upperLeftCorner;
     private float length;
 
+    public Point getUpperLeftCorner() {
+        return upperLeftCorner;
+    }
+
+    public float getLength() {
+        return length;
+    }
+
     public Square(Point upperLeftCorner, float length) {
         this.upperLeftCorner = upperLeftCorner;
         this.length = length;

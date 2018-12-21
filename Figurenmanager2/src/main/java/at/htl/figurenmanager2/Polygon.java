@@ -3,10 +3,15 @@ package at.htl.figurenmanager2;
 import java.util.ArrayList;
 
 public class Polygon extends Figure {
+
     private ArrayList<Point> corners;
 
     public Polygon(ArrayList<Point> corners) {
         this.corners = corners;
+    }
+
+    public ArrayList<Point> getCorners() {
+        return corners;
     }
 
     public double area() {
@@ -43,6 +48,5 @@ public class Polygon extends Figure {
     public String toString() {
         return String.format("Polygon %d Eckpunkten: Fläche -> %.2f, Umfang -> %.2f", corners.size(), area(), circumference());
     }
-
 
 }

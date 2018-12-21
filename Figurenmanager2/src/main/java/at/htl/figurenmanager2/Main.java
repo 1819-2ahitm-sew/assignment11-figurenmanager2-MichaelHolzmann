@@ -5,11 +5,11 @@ import java.util.Scanner;
 
 public class Main {
 
-    static Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         ArrayList<Figure> figures = new ArrayList<Figure>();
-        int menu;
+        int menuSelection;
 
         do {
             System.out.println("Programmmenü:");
@@ -25,12 +25,12 @@ public class Main {
             System.out.println("-------------------------------------");
 
             System.out.print("Auswahl (1-8): ");
-            menu = scanner.nextInt();
+            menuSelection = scanner.nextInt();
             scanner.nextLine();
 
             System.out.println();
 
-            switch (menu) {
+            switch (menuSelection) {
                 case 1:
                     figures.add(createCircle());
                     break;
@@ -60,7 +60,7 @@ public class Main {
 
             System.out.println();
 
-        } while (menu != 8);
+        } while (menuSelection != 8);
     }
 
     private static Circle createCircle(){
@@ -176,47 +176,46 @@ public class Main {
         return new Polygon(corners);
     }
 
-    private static void printFiguresSortedByArea(ArrayList<Figure> list){
-        Figure[] figures = list.toArray(new Figure[]{});
+    private static void printFiguresSortedByArea(ArrayList<Figure> figures) {
         Figure tmp;
 
-        for (int i = 0; i < figures.length - 1; i++) {
-            for (int j = i + 1; j < figures.length; j++) {
-                if(figures[j].area() < figures[i].area()){
-                    tmp = figures[i];
-                    figures[i] = figures[j];
-                    figures[j] = tmp;
+        for (int i = 0; i < figures.size() - 1; i++) {
+            for (int j = i + 1; j < figures.size(); j++) {
+                if (figures.get(j).area() < figures.get(i).area()){
+                    tmp = figures.get(i);
+                    figures.set(i, figures.get(j));
+                    figures.set(j, tmp);
                 }
             }
         }
 
-        for (int i = 0; i < figures.length; i++) {
-            System.out.println(figures[i]);
+        for (Figure f: figures) {
+            System.out.println(f);
         }
 
-        System.out.println("Drücken Sie <Enter> um fortzufahren.");
+        System.out.print("Drücken Sie <Enter> um fortzufahren.");
         scanner.nextLine();
     }
 
-    private static void printFiguresSortedByCircumference(ArrayList<Figure> list){
-        Figure[] figures = list.toArray(new Figure[]{});
+    private static void printFiguresSortedByCircumference(ArrayList<Figure> figures) {
         Figure tmp;
 
-        for (int i = 0; i < figures.length - 1; i++) {
-            for (int j = i + 1; j < figures.length; j++) {
-                if(figures[j].circumference() < figures[i].circumference()){
-                    tmp = figures[i];
-                    figures[i] = figures[j];
-                    figures[j] = tmp;
+        for (int i = 0; i < figures.size() - 1; i++) {
+            for (int j = i + 1; j < figures.size(); j++) {
+                if (figures.get(j).circumference() < figures.get(i).circumference()){
+                    tmp = figures.get(i);
+                    figures.set(i, figures.get(j));
+                    figures.set(j, tmp);
                 }
             }
         }
 
-        for (int i = 0; i < figures.length; i++) {
-            System.out.println(figures[i]);
+        for (Figure f: figures) {
+            System.out.println(f);
         }
 
-        System.out.println("Drücken Sie <Enter> um fortzufahren.");
+        System.out.print("Drücken Sie <Enter> um fortzufahren.");
         scanner.nextLine();
     }
+
 }

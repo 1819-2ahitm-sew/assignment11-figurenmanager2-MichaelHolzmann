@@ -15,6 +15,18 @@ public class Ellipse extends Figure {
         return majorAxis / 2 * minorAxis / 2 * Math.PI;
     }
 
+    public Point getCenter() {
+        return center;
+    }
+
+    public float getMajorAxis() {
+        return majorAxis;
+    }
+
+    public float getMinorAxis() {
+        return minorAxis;
+    }
+
     public double circumference() {
         return (majorAxis / 2 + minorAxis / 2) * Math.PI;
     }

@@ -5,6 +5,14 @@ public class Circle extends Figure {
     private Point center;
     private float radius;
 
+    public Point getCenter() {
+        return center;
+    }
+
+    public float getRadius() {
+        return radius;
+    }
+
     public Circle(Point center, float radius) {
         this.center = center;
         this.radius = radius;
