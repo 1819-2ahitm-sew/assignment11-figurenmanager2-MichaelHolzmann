@@ -1,14 +1,19 @@
 package at.htl.figurenmanager2;
 
+import processing.core.PApplet;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
+public class Main extends PApplet {
 
     private static Scanner scanner = new Scanner(System.in);
+    private static ArrayList<Figure> figures = new ArrayList<Figure>();
+    private static boolean exit = false;
 
     public static void main(String[] args) {
-        ArrayList<Figure> figures = new ArrayList<Figure>();
+        PApplet.main("at.htl.figurenmanager2.Main", args);
+
         int menuSelection;
 
         do {
@@ -53,6 +58,7 @@ public class Main {
                     printFiguresSortedByArea(figures);
                     break;
                 case 8:
+                    exit = true;
                     break;
                 default:
                     System.out.println("Ungültige Auswahl: Geben Sie eine Zahl zwischen 1 und 8 ein.");
@@ -63,7 +69,7 @@ public class Main {
         } while (menuSelection != 8);
     }
 
-    private static Circle createCircle(){
+    private static Circle createCircle() {
         System.out.println("Kreis erstellen:");
         System.out.println("-------------------------------------");
         System.out.print("x-Koordinate (Mittelpunkt): ");
@@ -78,7 +84,7 @@ public class Main {
         return new Circle(new Point(x, y), radius);
     }
 
-    private static Ellipse createEllipse(){
+    private static Ellipse createEllipse() {
         System.out.println("Ellipse erstellen:");
         System.out.println("-------------------------------------");
         System.out.print("x-Koordinate (Mittelpunkt): ");
@@ -96,7 +102,7 @@ public class Main {
         return new Ellipse(new Point(x, y), majorAxis, minorAxis);
     }
 
-    private static Square createSquare(){
+    private static Square createSquare() {
         System.out.println("Quadrat erstellen:");
         System.out.println("-------------------------------------");
         System.out.print("x-Koordinate (Eckpunkt links oben): ");
@@ -111,7 +117,7 @@ public class Main {
         return new Square(new Point(x, y), length);
     }
 
-    private static Rectangle createRectangle(){
+    private static Rectangle createRectangle() {
         System.out.println("Rechteck erstellen:");
         System.out.println("-------------------------------------");
         System.out.print("x-Koordinate (Eckpunkt links oben): ");
@@ -129,7 +135,7 @@ public class Main {
         return new Rectangle(new Point(x, y), length, width);
     }
 
-    private static Polygon createPolygon(){
+    private static Polygon createPolygon() {
         ArrayList<Point> corners = new ArrayList<>();
         float x, y;
         int input;
@@ -181,7 +187,7 @@ public class Main {
 
         for (int i = 0; i < figures.size() - 1; i++) {
             for (int j = i + 1; j < figures.size(); j++) {
-                if (figures.get(j).area() < figures.get(i).area()){
+                if (figures.get(j).area() < figures.get(i).area()) {
                     tmp = figures.get(i);
                     figures.set(i, figures.get(j));
                     figures.set(j, tmp);
@@ -189,7 +195,7 @@ public class Main {
             }
         }
 
-        for (Figure f: figures) {
+        for (Figure f : figures) {
             System.out.println(f);
         }
 
@@ -202,7 +208,7 @@ public class Main {
 
         for (int i = 0; i < figures.size() - 1; i++) {
             for (int j = i + 1; j < figures.size(); j++) {
-                if (figures.get(j).circumference() < figures.get(i).circumference()){
+                if (figures.get(j).circumference() < figures.get(i).circumference()) {
                     tmp = figures.get(i);
                     figures.set(i, figures.get(j));
                     figures.set(j, tmp);
@@ -210,12 +216,35 @@ public class Main {
             }
         }
 
-        for (Figure f: figures) {
+        for (Figure f : figures) {
             System.out.println(f);
         }
 
         System.out.print("Drücken Sie <Enter> um fortzufahren.");
         scanner.nextLine();
+    }
+
+    public void settings() {
+        size(2000, 1000);
+    }
+
+    public void setup() {
+        noFill();
+        strokeWeight(3);
+    }
+
+    public void draw() {
+        background(g.backgroundColor);
+
+        if (exit) {
+            exit();
+        } else {
+            for (Figure figure : figures) {
+                if (figure instanceof DrawingFigure) {
+                    ((DrawingFigure) figure).draw(this);
+                }
+            }
+        }
     }
 
 }
